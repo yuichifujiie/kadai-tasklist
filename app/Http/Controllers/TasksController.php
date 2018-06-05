@@ -15,10 +15,11 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $messages = Message::all();
+        $tasks = Task::all();
 
-        return view('messages.index', [
-            'messages' => $messages,
+        return view('tasks.index', [
+            'tasks' => $tasks,
+        ]);
     }
 
     /**
@@ -28,10 +29,10 @@ class TasksController extends Controller
      */
     public function create()
     {
-         $message = new Message;
+         $task = new Task;
 
-        return view('messages.create', [
-            'message' => $message,
+        return view('tasks.create', [
+            'task' => $task,
         ]);
     }
 
@@ -43,9 +44,12 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        $message = new Message;
-        $message->content = $request->content;
-        $message->save();
+        $this->validate($request, ['content' => 'required|max:255',]);
+
+        
+        $task = new Task;
+        $task->content = $request->content;
+        $task->save();
 
         return redirect('/');
     }
@@ -58,10 +62,10 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-        $message = Message::find($id);
+        $task = Task::find($id);
 
-        return view('messages.show', [
-            'message' => $message,
+        return view('tasks.show', [
+            'task' => $task,
         ]);
     }
 
@@ -73,10 +77,10 @@ class TasksController extends Controller
      */
     public function edit($id)
     {
-        $message = Message::find($id);
+        $task = Task::find($id);
 
-        return view('messages.edit', [
-            'message' => $message,
+        return view('tasks.edit', [
+            'task' => $task,
         ]);
     }
 
@@ -89,9 +93,14 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $message = Message::find($id);
-        $message->content = $request->content;
-        $message->save();
+        $this->validate($request, [
+            'content' => 'required|max:255',
+        ]);
+
+        
+        $task = Task::find($id);
+        $task->content = $request->content;
+        $task->save();
 
         return redirect('/');
     }
@@ -104,8 +113,8 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-        $message = Message::find($id);
-        $message->delete();
+        $task = Task::find($id);
+        $task->delete();
 
         return redirect('/');
     }

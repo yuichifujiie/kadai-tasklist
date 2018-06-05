@@ -2,13 +2,13 @@
 
 @section('content')
 
-<h1>id = {{ $message->id }} のメッセージ詳細ページ</h1>
+<h1>id = {{ $task->id }} のメッセージ詳細ページ</h1>
 
-<p>{{ $message->content }}</p>
+<p>{{ $task->content }}</p>
 
-{!! link_to_route('messages.edit', 'このメッセージ編集', ['id' => $message->id]) !!}
+{!! link_to_route('tasks.edit', 'このメッセージ編集', ['id' => $task->id]) !!}
 
-    {!! Form::model($message, ['route' => ['messages.destroy', $message->id], 'method' => 'delete']) !!}
+    {!! Form::model($task, ['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}
         {!! Form::submit('削除') !!}
     {!! Form::close() !!}
 
