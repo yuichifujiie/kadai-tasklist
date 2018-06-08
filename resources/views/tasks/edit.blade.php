@@ -13,7 +13,7 @@
         {!! Form::text('content', null, ['class' => 'form-control']) !!}
         
         {!! Form::label('status', 'ステータス:') !!}
-        {!! Form::select('status',['0%', '50%', '100%'], null, ['class' => 'form-control']) !!}
+        {!! Form::select('status',['0%'=>'0%', '50%'=>'50%', '100%'=>'100%'], null, ['class' => 'form-control']) !!}
 
         {!! Form::submit('更新', ['class' => 'btn btn-default']) !!}
 
