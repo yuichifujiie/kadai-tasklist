@@ -15,10 +15,14 @@
     <body>
         @include('commons.navbar')
         
-        <div class=container>
-            @yield('content')
         
-            @include('commons.error_messages')
+        <div class="row">
+            <div class="col-xs-12 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+                @yield('content')
+        
+                @include('commons.error_messages')
+            </div>
         </div>
+        
     </body>
 </html>
