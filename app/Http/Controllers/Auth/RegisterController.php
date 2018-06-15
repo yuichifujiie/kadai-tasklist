@@ -30,10 +30,10 @@ class RegisterController extends Controller
     protected $redirectTo = '/';
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+     <!--* Create a new controller instance.-->
+     <!--*-->
+     <!--* @return void-->
+     <!--*/
     public function __construct()
     {
         $this->middleware('guest');
