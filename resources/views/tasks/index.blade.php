@@ -2,15 +2,15 @@
 
 @section('content')
 
- <h1>メッセージ一覧</h1>
+ <h1>All Task</h1>
 
     @if (count($tasks) > 0)
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>タイトル</th>
-                    <th>メッセージ</th>
+                    <th>Task</th>
+                    <th>Status</th>
                 </tr>
             </thead>
              <tbody>
